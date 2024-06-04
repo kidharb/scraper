@@ -1,0 +1,3 @@
+python -m venv scraper_venv
+./scraper_venv/bin/pip install -r requirements.txt
+./scraper_venv/bin/python scraper.py

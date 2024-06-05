@@ -1,5 +1,6 @@
 FROM python:alpine3.20
-COPY . /scraper
+RUN mkdir -p /scraper
+COPY scraper.py requirements.txt /scraper
 WORKDIR /scraper
 RUN pip install -r requirements.txt
 EXPOSE 5555

@@ -13,6 +13,5 @@ services:
       context: .
     environment:
       - ZMQ_BIND_PORT=5555
-      - ZMQ_BIND_IP=192.168.1.151
     ports:
       - 5555:5555

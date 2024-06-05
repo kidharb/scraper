@@ -4,17 +4,22 @@
 #   Expects b"Hello" from client, replies with b"World"
 #
 
-import time
+import os
 import zmq
+import time
 
+port = os.environ['ZMQ_BIND_PORT']
+sock = "tcp://0.0.0.0:" + port
+
+print("Creating Context")
 context = zmq.Context()
+print("Creating socket")
 socket = context.socket(zmq.PAIR)
-socket.bind("tcp://*:5555")
+print("Binding to " + sock)
+socket.bind(sock)
 
 while True:
+    print("Waiting for message", flush=True)
     #  Wait for next request from client
     message = socket.recv()
     print("Received request: %s" % message)
-
-    #  Do some 'work'
-    time.sleep(1)
